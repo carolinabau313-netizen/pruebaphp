@@ -38,3 +38,4 @@ CREATE TABLE IF NOT EXISTS t_productos (
 
      
 )ENGINE=InnoDB;
+
