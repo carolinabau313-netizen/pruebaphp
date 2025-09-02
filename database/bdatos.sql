@@ -25,17 +25,48 @@ CREATE TABLE IF NOT EXISTS  t_categorias(
 
 )ENGINE=InnoDB;
 
-CREATE TABLE IF NOT EXISTS t_productos (
-    id_producto      INT(11)AUTO_INCREMENT NOT NULL,
-    nombre_producto  VARCHAR(100)       NOT NULL,
-    stok             INT(11)             NOT  NULL,
-    precio           decimal(10.0)      NOT NULL,
-    imagen           VARCHAR(200),
-    oferta           VARCHAR (255)       NOT  NULL,
-    id_categoria     INT (11)               NOT  NULL,
-    PRIMARY key (INT_producto),
-    foreign  key (id_categoria)references t_categorias(id_categoria)
+INSERT INTO t_categorias VALUE (NULL,'Construccion'),(NULL,'electricos'),(NULL,'piso' ),(NULL, 'pintura');
 
-     
+CREATE TABLE IF NOT EXISTS t_productos (
+    id_producto     INT AUTO_INCREMENT NOT NULL,
+    nombre_producto VARCHAR(100)       NOT NULL,
+    descripcion     VARCHAR(255)       NOT NULL,
+    fecha           DATE               NOT NULL,
+    stock           INT                NOT NULL,
+    precio          DECIMAL(10,2)      NOT NULL,
+    imagen          VARCHAR(200),
+    oferta          VARCHAR(255)       NOT NULL,
+    id_categoria    INT                NOT NULL,
+    CONSTRAINT pk_producto PRIMARY KEY (id_producto),
+    CONSTRAINT fk_producto FOREIGN KEY (id_categoria)
+        REFERENCES t_categorias(id_categoria)
+) ENGINE=InnoDB;
+CREATE TABLE IF NOT EXISTS t_pedidos(
+    id_pedido  INT(11) AUTO_INCREMENT NOT NULL,
+    id_usuario INT                    NOT  NULL,
+    fecha      DATE                   NOT NULL,
+    hora       time                   NOT  NULL,
+    CIUDAD  VARCHAR(100)              NOT  NULL,
+    DIRECCION   VARCHAR(100)          NOT NULL,
+    COSTO       FLOAT(10,2)           NOT  NULL,
+    ESTADO      VARCHAR(100)          NOT NULL,
+
+    CONSTRAINT pk_PEDIDO  PRIMARY  KEY (id_pedido),
+    CONSTRAINT fk_PEDIDO_USUARIO  FOREIGN KEY (id_usuario)
+    REFERENCES t_usuarios(id_usuario)
+
+
 )ENGINE=InnoDB;
 
+CREATE TABLE IF NOT EXISTS t_detallepedido(
+    id_detallepedido	INT(11)  AUTO_INCREMENT    	NOT NULL,
+    id_pedido       	INT(11)                    	NOT NULL,
+    id_producto     	INT(11)                    	NOT NULL,
+    unidades        	INT(100)                 	NOT  NULL,
+    CONSTRAINT 			pk_detallepedido   			PRIMARY KEY (id_detallepedido),
+    CONSTRAINT  		fk_detallepedido_pedido  	FOREIGN KEY (id_pedido) REFERENCES t_pedidos(id_pedido),  
+  	CONSTRAINT 			fk_detallepedido_producto 	FOREIGN KEY (id_producto) REFERENCES t_productos(id_producto)
+
+ ) ENGINE=InnoDB;
+
+ 
