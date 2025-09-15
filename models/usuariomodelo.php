@@ -1,77 +1,162 @@
 <?php
 
-require_once 'database.php';
-class Usuario {
+require_once 'config/database.php';
 
-    public $db;
+class usuario {
 
-    public function __construct(){
+    public $db;  
+
+    public function __construct() {
         $this->db = database::conectar();
     }
 
     public $id_usuario;
-    public $nombre;
+    public $nombre;   
     public $apellido;
     public $email;
-    public $password;
+    public $password;  
     public $rol;
     public $imagen;
 
     function getid_usuario(){
-        $result = $this->id_usuario;
-    
+        return $this->id_usuario;
     }
 
     function getnombre(){
-        $result = $this->nombre;
+        return $this->nombre;
+    }<?php
+
+require_once 'config/database.php';
+
+class usuario {
+
+    public $db;  
+
+    public function __construct() {
+        $this->db = database::conectar();
+    }
+
+    public $id_usuario;
+    public $nombre;   
+    public $apellido;
+    public $email;
+    public $password;  
+    public $rol;
+    public $imagen;
+
+    function getid_usuario(){
+        return $this->id_usuario;
+    }
+
+    function getnombre(){
+        return $this->nombre;
     }
 
     function getapellido(){
-        $result = $this->apellido;
+        return $this->apellido;
     }
 
     function getemail(){
-        $result = $this->email;
+        return $this->email;
     }
-
     function getpassword(){
-        $result = $this->password;
+        return $this->password;
     }
 
     function getrol(){
-        $result = $this->rol;
+        return $this->rol;
     }
 
     function getimagen(){
-        $result = $this->imagen;
+        return $this->imagen;
     }
 
-    function setid_usuario($id_usuario){
-        $this->id_usuario = $id_usuario;
+function setid_usuario($id_usuario){
+    $this->id_usuario = $id_usuario;
+}
+
+function setnombre($nombre){
+    $this->nombre = $nombre;
+
+}
+
+function setapellido($apellido){
+    $this->apellido = $apellido;
+
+function setemail($email){
+    $this->email = $email;
+
+}
+
+function setpassword($password){
+    $this->password = $password;
+
+}
+
+function setrol($rol){
+    $this->rol = $rol;
+
+}
+
+function setimagen($imagen){
+    $this->imagen = $imagen;
+
+}
+
+}
+
+
+    function getapellido(){
+        return $this->apellido;
     }
 
-    function setnombre($nombre){
-        $this->nombre = $nombre;
+    function getemail(){
+        return $this->email;
+    }
+    function getpassword(){
+        return $this->password;
     }
 
-    function setapellido($apellido){
-        $this->apellido = $apellido;
+    function getrol(){
+        return $this->rol;
     }
 
-    function setemail($email){
-        $this->email = $email;
+    function getimagen(){
+        return $this->imagen;
     }
 
-    function setpassword($password){
-        $this->password = $password;
-    }
+function setid_usuario($id_usuario){
+    $this->id_usuario = $id_usuario;
+}
 
-    function setrol($rol){
-        $this->rol = $rol;
-    }
+function setnombre($nombre){
+    $this->nombre = $nombre;
 
-    function setimagen($imagen){
-        $this->imagen = $imagen;
-    }
-    
+}
+
+function setapellido($apellido){
+    $this->apellido = $apellido;
+
+}
+
+function setemail($email){
+    $this->email = $email;
+
+}
+
+function setpassword($password){
+    $this->password = $password;
+
+}
+
+function setrol($rol){
+    $this->rol = $rol;
+
+}
+
+function setimagen($imagen){
+    $this->imagen = $imagen;
+
+}
+
 }
