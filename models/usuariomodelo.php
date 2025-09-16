@@ -2,7 +2,7 @@
 
 require_once 'config/database.php';
 
-class usuario {
+class Usuario{
 
     public $db;  
 
@@ -78,5 +78,11 @@ function setimagen($imagen){
     $this->imagen = $imagen;
 
 }
+
+
+    public function conseguirtodos () {
+
+        echo "IMPRIMIENDO TODOS LOS USUARIOS";
+     }
 
 }
